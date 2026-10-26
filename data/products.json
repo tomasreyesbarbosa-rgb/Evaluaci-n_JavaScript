@@ -1,0 +1,110 @@
+[
+  {
+    "id": 101,
+    "name": "Teclado mecánico",
+    "category": "Periféricos",
+    "price": 189900,
+    "stock": 8,
+    "description": "Teclado USB para uso diario con teclas resistentes.",
+    "active": true
+  },
+  {
+    "id": 102,
+    "name": "Mouse inalámbrico",
+    "category": "Periféricos",
+    "price": 110100,
+    "stock": 12,
+    "description": "Mouse ergonómico inalámbrico con receptor USB.",
+    "active": true
+  },
+  {
+    "id": 107,
+    "name": "Hub USB-C",
+    "category": "Accesorios",
+    "price": 99900,
+    "stock": 6,
+    "description": "Adaptador compacto con puertos USB y HDMI.",
+    "active": true
+  },
+  {
+    "id": 108,
+    "name": "Cable USB-C",
+    "category": "Accesorios",
+    "price": 29999,
+    "stock": 25,
+    "description": "Cable de carga y datos USB-C de un metro.",
+    "active": true
+  },
+  {
+    "id": 109,
+    "name": "Memoria USB 64 GB",
+    "category": "Almacenamiento",
+    "price": 39900,
+    "stock": 15,
+    "description": "Memoria portátil USB de 64 GB para documentos.",
+    "active": true
+  },
+  {
+    "id": 110,
+    "name": "Disco externo 1 TB",
+    "category": "Almacenamiento",
+    "price": 279900,
+    "stock": 4,
+    "description": "Almacenamiento portátil de 1 TB con conexión USB.",
+    "active": true
+  },
+  {
+    "id": 111,
+    "name": "Tarjeta microSD 128 GB",
+    "category": "Almacenamiento",
+    "price": 79900,
+    "stock": 0,
+    "description": "Tarjeta microSD de alta capacidad para dispositivos.",
+    "active": true
+  },
+  {
+    "id": 112,
+    "name": "Tóner negro",
+    "category": "Suministros",
+    "price": 159900,
+    "stock": 3,
+    "description": "Tóner negro compatible con impresoras de oficina.",
+    "active": true
+  },
+  {
+    "id": 113,
+    "name": "Papel carta",
+    "category": "Suministros",
+    "price": 24900,
+    "stock": 30,
+    "description": "Resma de papel tamaño carta para impresión diaria.",
+    "active": true
+  },
+  {
+    "id": 114,
+    "name": "Adaptador VGA",
+    "category": "Accesorios",
+    "price": 34900,
+    "stock": 0,
+    "description": "Adaptador VGA para conectar pantallas compatibles.",
+    "active": true
+  },
+  {
+    "id": 115,
+    "name": "Teclado numérico antiguo",
+    "category": "Periféricos",
+    "price": 59900,
+    "stock": 4,
+    "description": "Teclado numérico USB de modelo fuera de catálogo.",
+    "active": false
+  },
+  {
+    "id": 116,
+    "name": "Parlante Bluetooth compacto",
+    "category": "Periféricos",
+    "price": 299999,
+    "stock": 2,
+    "description": "Parlante compacto para escuchar audio en casa o en la oficina.",
+    "active": true
+  }
+]
