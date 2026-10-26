@@ -12,6 +12,7 @@ export function loadCart(products) {
       return { lines: [], warning: "El carrito guardado tenía un formato incorrecto y se inició vacío." };
     }
 
+    // Se contrasta cada línea con el catálogo actual; el almacenamiento no es fuente de precios.
     const productMap = new Map(products.map((product) => [product.id, product]));
     const quantities = new Map();
     let ignoredLines = 0;
