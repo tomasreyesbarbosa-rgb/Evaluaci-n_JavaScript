@@ -284,6 +284,10 @@ a:focus-visible {
   border-bottom: 1px solid var(--danger);
 }
 
+product-list {
+  display: block;
+}
+
 .rejilla-productos {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
