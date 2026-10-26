@@ -15,3 +15,62 @@
   font-family: Arial, Helvetica, sans-serif;
   font-synthesis: none;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--canvas);
+  line-height: 1.5;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+.encabezado-sitio {
+  display: flex;
+  min-height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(24px, calc((100vw - 1180px) / 2));
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.marca,
+.enlace-carrito {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.marca {
+  font-size: 1.1rem;
+}
+
+.simbolo-marca {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    color: white;
+}
