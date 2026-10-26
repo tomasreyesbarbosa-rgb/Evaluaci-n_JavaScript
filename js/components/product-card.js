@@ -4,6 +4,7 @@ const currency = new Intl.NumberFormat("es-CO", {
   maximumFractionDigits: 0,
 });
 
+// La tarjeta muestra un producto y comunica solicitudes; no conoce el estado global.
 export class ProductCard extends HTMLElement {
   set product(value) {
     this._product = value;
@@ -57,6 +58,7 @@ export class ProductCard extends HTMLElement {
     addButton.setAttribute("aria-label", `Agregar ${product.name} al carrito`);
     addButton.addEventListener("click", () => {
       // La aplicación escucha el evento y valida la operación antes de modificar el carrito.
+      // bubbles y composed permiten que el evento llegue al responsable fuera del componente.
       this.dispatchEvent(new CustomEvent("product-add-request", {
         bubbles: true,
         composed: true,
@@ -69,5 +71,3 @@ export class ProductCard extends HTMLElement {
     this.replaceChildren(article);
   }
 }
-
-customElements.define("product-card", ProductCard);

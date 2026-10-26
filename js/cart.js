@@ -15,6 +15,7 @@ export class Cart {
   }
 
   add(productId, quantity = 1) {
+    // Primero valida el producto y la cantidad; solo escribe en el estado si todo es válido.
     const product = this.#getAvailableProduct(productId);
     this.#assertQuantity(quantity);
 
@@ -62,6 +63,7 @@ export class Cart {
   }
 
   getSummary() {
+    // Todos los importes se derivan de las líneas y los precios vigentes del catálogo.
     const lines = this.getLines();
     const units = lines.reduce((total, line) => total + line.quantity, 0);
     const subtotal = lines.reduce((total, line) => total + line.subtotal, 0);

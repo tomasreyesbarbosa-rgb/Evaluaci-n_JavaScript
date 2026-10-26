@@ -5,6 +5,7 @@ export class ProductList extends HTMLElement {
   }
 
   render() {
+    // Crea tarjetas a partir del arreglo filtrado que entrega la aplicación.
     const grid = document.createElement("div");
     grid.className = "rejilla-productos";
     grid.setAttribute("aria-label", "Lista de productos");

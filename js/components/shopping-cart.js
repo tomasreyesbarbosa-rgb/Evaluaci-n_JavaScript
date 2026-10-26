@@ -19,6 +19,7 @@ export class ShoppingCart extends HTMLElement {
       discount: 0,
       total: 0,
     };
+    // Si aún no recibe datos, presenta un resumen vacío seguro.
     const layout = document.createElement("div");
     layout.className = "disposicion-carrito";
     const linesContainer = document.createElement("div");
@@ -82,6 +83,7 @@ export class ShoppingCart extends HTMLElement {
   }
 
   #createLine(line) {
+    // Cada control emite una solicitud; la lógica de negocio vive en la aplicación y Cart.
     const row = document.createElement("article");
     row.className = "linea-carrito";
     const info = document.createElement("div");

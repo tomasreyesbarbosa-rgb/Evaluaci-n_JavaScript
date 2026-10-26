@@ -18,6 +18,7 @@ function isValidProduct(product) {
 }
 
 export async function fetchProducts() {
+  // El catálogo se solicita una vez desde el servidor HTTP local.
   const response = await fetch(CATALOG_URL, {
     headers: { Accept: "application/json" },
   });
@@ -39,6 +40,7 @@ export async function fetchProducts() {
   }
 
   const ids = products.map((product) => product.id);
+  // Los IDs duplicados harían ambiguas las líneas del carrito y el almacenamiento.
   if (new Set(ids).size !== ids.length) {
     throw new Error("El catálogo contiene identificadores de producto duplicados.");
   }
