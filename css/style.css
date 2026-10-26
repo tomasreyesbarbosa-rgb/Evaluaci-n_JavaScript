@@ -1,0 +1,17 @@
+:root {
+  color-scheme: light;
+  --ink: #17231f;
+  --muted: #68736e;
+  --surface: #ffffff;
+  --canvas: #ffffff;
+  --line: #d9e0dc;
+  --brand: #176b50;
+  --brand-dark: #10533e;
+  --brand-soft: #edf5f1;
+  --danger: #a42d2d;
+  --danger-soft: #fff0ee;
+  --warning: #80561b;
+  --warning-soft: #fff7e6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-synthesis: none;
+}
