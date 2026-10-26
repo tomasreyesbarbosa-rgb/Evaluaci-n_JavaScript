@@ -7,6 +7,7 @@ export function loadCart(products) {
       return { lines: [], warning: "" };
     }
 
+    // Los datos persistidos son entrada externa: se analizan y validan antes de usarlos.
     const parsed = JSON.parse(saved);
     if (!Array.isArray(parsed)) {
       return { lines: [], warning: "El carrito guardado tenía un formato incorrecto y se inició vacío." };
@@ -24,6 +25,7 @@ export function loadCart(products) {
       }
 
       const product = productMap.get(line.productId);
+      // También valida cantidades repetidas acumuladas para no superar el inventario.
       const combinedQuantity = (quantities.get(line.productId) ?? 0) + line.quantity;
       if (!product?.active || product.stock < combinedQuantity) {
         ignoredLines += 1;
