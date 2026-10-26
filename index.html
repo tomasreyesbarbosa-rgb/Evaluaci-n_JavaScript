@@ -9,6 +9,7 @@
     <script type="module" src="js/app.js"></script>
   </head>
   <body>
+    <!-- Navegación principal: la insignia se actualiza con las unidades del carrito. -->
     <header class="encabezado-sitio">
       <a class="marca" href="./" aria-label="TecnoStock, inicio">
         <span class="simbolo-marca" aria-hidden="true">T</span>
@@ -20,6 +21,7 @@
     </header>
 
     <main class="contenedor-pagina">
+      <!-- Presentación breve de la tienda y propósito del catálogo. -->
       <section class="introduccion" aria-labelledby="page-title">
         <p class="texto-auxiliar">Tecnología para todos los días</p>
         <h1 id="page-title">Encuentra lo que necesitas.</h1>
@@ -28,6 +30,7 @@
 
       <p id="app-message" class="mensaje-aplicacion" role="status" aria-live="polite"></p>
 
+      <!-- El formulario filtra en memoria; product-list recibe los resultados. -->
       <section class="seccion-catalogo" aria-labelledby="catalog-title">
         <div class="encabezado-seccion">
           <div>
@@ -67,6 +70,7 @@
         <product-list id="product-list"></product-list>
       </section>
 
+      <!-- shopping-cart presenta el resumen y emite solicitudes de acciones. -->
       <section id="carrito" class="seccion-carrito" aria-labelledby="cart-title">
         <div class="encabezado-seccion">
           <div>
@@ -78,6 +82,7 @@
       </section>
     </main>
 
+    <!-- Resumen local de la compra simulada; no procesa pagos ni actualiza inventario. -->
     <dialog id="order-dialog" class="dialogo-pedido" aria-labelledby="order-title">
       <div class="contenido-dialogo">
         <p class="texto-auxiliar">Pedido simulado</p>

@@ -20,6 +20,7 @@
   box-sizing: border-box;
 }
 
+/* Estilos globales y estructura base de la página. */
 body {
   margin: 0;
   color: var(--ink);
@@ -223,6 +224,7 @@ a:focus-visible {
   accent-color: var(--brand);
 }
 
+/* Estilos compartidos para botones y sus variantes de acción. */
 .boton {
   display: inline-flex;
   min-height: 40px;
@@ -284,6 +286,7 @@ a:focus-visible {
   border-bottom: 1px solid var(--danger);
 }
 
+/* product-list es un elemento personalizado y debe ocupar el ancho disponible. */
 product-list {
   display: block;
 }
@@ -372,6 +375,7 @@ product-list {
   border-bottom: 1px solid var(--line);
 }
 
+/* Líneas, controles y resumen del carrito. */
 .disposicion-carrito {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
@@ -491,6 +495,7 @@ product-list {
   margin: 0;
 }
 
+/* Diálogo que muestra la confirmación simulada del pedido. */
 .dialogo-pedido {
   width: min(520px, calc(100% - 32px));
   max-height: min(85vh, 760px);
@@ -554,6 +559,7 @@ product-list {
   font-size: 0.83rem;
 }
 
+/* Ajustes para tabletas y pantallas medianas. */
 @media (max-width: 900px) {
   .filtros {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -568,6 +574,7 @@ product-list {
   }
 }
 
+/* Una sola columna y controles apilados en pantallas estrechas. */
 @media (max-width: 620px) {
   .encabezado-sitio {
     min-height: 62px;
