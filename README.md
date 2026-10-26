@@ -12,10 +12,12 @@ python3 -m http.server 8000
 
 Luego abre <http://localhost:8000> en el navegador.
 
+También puedes iniciar el proyecto con la extensión Live Server de VS Code y abrir la URL local que genere.
+
 ## Organización
 
 - `index.html`: estructura de la interfaz y accesibilidad.
-- `css/styles.css`: presentación adaptable a escritorio y móvil.
+- `css/style.css`: presentación adaptable a escritorio y móvil.
 - `data/products.json`: catálogo cargado mediante `fetch()`.
 - `js/api.js`: solicitud y validación de datos del catálogo.
 - `js/cart.js`: reglas del carrito, inventario y cálculo de descuentos.
