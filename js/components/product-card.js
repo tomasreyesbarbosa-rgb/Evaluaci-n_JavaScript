@@ -71,3 +71,5 @@ export class ProductCard extends HTMLElement {
     this.replaceChildren(article);
   }
 }
+
+customElements.define("product-card", ProductCard);
