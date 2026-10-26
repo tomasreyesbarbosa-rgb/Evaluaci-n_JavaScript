@@ -1,3 +1,4 @@
+// Persiste únicamente IDs y cantidades; los precios siempre se recuperan del catálogo vigente.
 const STORAGE_KEY = "tecnostock-cart-v1";
 
 export function loadCart(products) {

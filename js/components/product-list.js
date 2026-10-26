@@ -1,3 +1,4 @@
+// Recibe los productos ya filtrados y crea una tarjeta por cada resultado.
 export class ProductList extends HTMLElement {
   set products(value) {
     this._products = Array.isArray(value) ? value : [];

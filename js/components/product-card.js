@@ -1,3 +1,4 @@
+// Presenta un producto individual y delega la acción de agregarlo mediante un evento.
 const currency = new Intl.NumberFormat("es-CO", {
   style: "currency",
   currency: "COP",
@@ -47,7 +48,11 @@ export class ProductCard extends HTMLElement {
     price.textContent = currency.format(product.price);
     const stock = document.createElement("span");
     stock.className = "existencias-producto";
-    stock.textContent = available ? `${product.stock} en inventario` : "Agotado";
+    stock.textContent = !product.active
+      ? "Fuera de catálogo"
+      : product.stock > 0
+        ? `${product.stock} en inventario`
+        : "Agotado";
     priceAndStock.append(price, stock);
 
     const addButton = document.createElement("button");

@@ -1,3 +1,4 @@
+// Centraliza el estado del carrito y las reglas de inventario e importes.
 const DISCOUNT_THRESHOLD = 300_000;
 const DISCOUNT_RATE = 0.1;
 

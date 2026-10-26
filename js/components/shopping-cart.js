@@ -1,3 +1,4 @@
+// Presenta el resumen recibido de la aplicación y emite solicitudes para modificarlo.
 const currency = new Intl.NumberFormat("es-CO", {
   style: "currency",
   currency: "COP",

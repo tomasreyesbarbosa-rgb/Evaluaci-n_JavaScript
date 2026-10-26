@@ -5,6 +5,7 @@ import "./components/product-card.js";
 import "./components/product-list.js";
 import "./components/shopping-cart.js";
 
+// Punto de coordinación: carga datos, aplica filtros y conecta los eventos de UI con el carrito.
 const currency = new Intl.NumberFormat("es-CO", {
   style: "currency",
   currency: "COP",
@@ -35,7 +36,7 @@ const elements = {
 let catalog = [];
 let cart;
 
-// Los filtros se aplican en memoria sobre la copia del catálogo ya cargada.
+// Mensajes accesibles para estados generales y estados específicos del catálogo.
 function showMessage(message, type = "info") {
   elements.appMessage.textContent = message;
   elements.appMessage.dataset.type = type;
@@ -46,6 +47,7 @@ function showCatalogStatus(message, type = "info") {
   elements.catalogStatus.dataset.type = type;
 }
 
+// Los filtros se aplican en memoria sobre la copia del catálogo ya cargada.
 function renderProducts() {
   // Combina todos los criterios antes de ordenar la lista resultante.
   const term = elements.search.value.trim().toLocaleLowerCase("es");
@@ -62,9 +64,9 @@ function renderProducts() {
   });
 
   if (sort === "asc") {
-    filtered = filtered.toSorted((left, right) => left.price - right.price || left.id - right.id);
+    filtered = [...filtered].sort((left, right) => left.price - right.price || left.id - right.id);
   } else if (sort === "desc") {
-    filtered = filtered.toSorted((left, right) => right.price - left.price || left.id - right.id);
+    filtered = [...filtered].sort((left, right) => right.price - left.price || left.id - right.id);
   }
 
   elements.productList.products = filtered;
@@ -82,7 +84,9 @@ function renderCart() {
 function persistCart() {
   if (!saveCart(cart.getLines())) {
     showMessage("El carrito sigue disponible en esta sesión, pero no se pudo guardar en este navegador.", "error");
+    return false;
   }
+  return true;
 }
 
 function applyCartChange(operation) {
@@ -109,6 +113,7 @@ function populateCategories() {
   }
 }
 
+// Crea un identificador local para distinguir cada pedido simulado.
 function createOrderId() {
   // UUID cuando el navegador lo ofrece; alternativa local para navegadores antiguos.
   if (typeof crypto.randomUUID === "function") {
@@ -127,6 +132,7 @@ function appendOrderTotal(label, value) {
   elements.orderTotals.append(row);
 }
 
+// Valida el carrito y presenta el resumen del pedido sin procesar un pago real.
 function confirmOrder() {
   // No se vacía el carrito hasta haber validado todas las líneas y preparado el resumen.
   let summary;
@@ -158,8 +164,13 @@ function confirmOrder() {
   // El carrito se vacía solo después de validar y preparar el resumen del pedido.
   cart.clear();
   renderCart();
-  persistCart();
-  showMessage("Pedido simulado confirmado. No se realizó ningún pago ni se modificó el inventario.");
+  const saved = persistCart();
+  showMessage(
+    saved
+      ? "Pedido simulado confirmado. No se realizó ningún pago ni se modificó el inventario."
+      : "Pedido simulado confirmado. No se realizó ningún pago ni se modificó el inventario. El carrito se vació en esta sesión, pero el cambio no se pudo guardar en este navegador.",
+    saved ? "info" : "error",
+  );
 }
 
 async function start() {

@@ -1,3 +1,4 @@
+// Obtiene y valida el catálogo remoto servido desde la carpeta local del proyecto.
 const CATALOG_URL = "./data/products.json";
 
 // Valida cada registro antes de que otras partes de la aplicación lo utilicen.
