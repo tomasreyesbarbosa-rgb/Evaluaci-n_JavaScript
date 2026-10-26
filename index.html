@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Consulta productos y prepara tu pedido en TecnoStock.">
+    <title>TecnoStock | Tecnología para tu día</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script type="module" src="./js/app.js"></script>
+  </head>
+  <body>
+    <header class="encabezado-sitio">
+      <a class="marca" href="./" aria-label="TecnoStock, inicio">
+        <span class="simbolo-marca" aria-hidden="true">T</span>
+        <span>TecnoStock</span>
+      </a>
+      <a class="enlace-carrito" href="#carrito">
+        Carrito <span id="header-count" class="insignia-cantidad" aria-label="0 unidades">0</span>
+      </a>
+    </header>
+
+    <main class="contenedor-pagina">
+      <section class="introduccion" aria-labelledby="page-title">
+        <p class="texto-auxiliar">Tecnología para todos los días</p>
+        <h1 id="page-title">Encuentra lo que necesitas.</h1>
+        <p>Explora el catálogo y prepara tu pedido de forma sencilla.</p>
+      </section>
+
+      <p id="app-message" class="mensaje-aplicacion" role="status" aria-live="polite"></p>
+
+      <section class="seccion-catalogo" aria-labelledby="catalog-title">
+        <div class="encabezado-seccion">
+          <div>
+            <p class="texto-auxiliar">Catálogo</p>
+            <h2 id="catalog-title">Productos</h2>
+          </div>
+          <span id="result-count" class="contador-resultados"></span>
+        </div>
+
+        <form id="filters" class="filtros" role="search">
+          <div class="campo campo-busqueda">
+            <label for="search">Buscar productos</label>
+            <input id="search" name="search" type="search" placeholder="Nombre o descripción">
+          </div>
+          <div class="campo">
+            <label for="category">Categoría</label>
+            <select id="category" name="category">
+              <option value="">Todas las categorías</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="sort">Ordenar por precio</label>
+            <select id="sort" name="sort">
+              <option value="">Orden predeterminado</option>
+              <option value="asc">Menor a mayor</option>
+              <option value="desc">Mayor a menor</option>
+            </select>
+          </div>
+          <label class="filtro-disponibilidad">
+            <input id="available-only" type="checkbox">
+            <span>Solo disponibles</span>
+          </label>
+          <button id="clear-filters" class="boton boton-secundario" type="button">Limpiar filtros</button>
+        </form>
+
+        <p id="catalog-status" class="estado-catalogo" role="status" aria-live="polite">Cargando el catálogo…</p>
+        <product-list id="product-list"></product-list>
+      </section>
+
+      <section id="carrito" class="seccion-carrito" aria-labelledby="cart-title">
+        <div class="encabezado-seccion">
+          <div>
+            <p class="texto-auxiliar">Tu selección</p>
+            <h2 id="cart-title">Carrito y pedido</h2>
+          </div>
+        </div>
+        <shopping-cart id="shopping-cart"></shopping-cart>
+      </section>
+    </main>
+
+    <dialog id="order-dialog" class="dialogo-pedido" aria-labelledby="order-title">
+      <div class="contenido-dialogo">
+        <p class="texto-auxiliar">Pedido simulado</p>
+        <h2 id="order-title">Resumen de tu pedido</h2>
+        <p id="order-id" class="identificador-pedido"></p>
+        <ul id="order-lines" class="lineas-pedido"></ul>
+        <dl id="order-totals" class="totales-pedido"></dl>
+        <p class="nota-dialogo">Esta es una confirmación local de prueba. No se realizó ningún pago ni se actualizó el inventario.</p>
+        <button id="close-order" class="boton boton-principal" type="button">Cerrar resumen</button>
+      </div>
+    </dialog>
+
+    <footer class="pie-sitio">
+      <p>TecnoStock · Catálogo y pedidos de demostración</p>
+    </footer>
+  </body>
+</html>
