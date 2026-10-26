@@ -11,6 +11,7 @@ const currency = new Intl.NumberFormat("es-CO", {
   maximumFractionDigits: 0,
 });
 
+// Referencias a elementos estables del HTML; los componentes se actualizan por sus propiedades.
 const elements = {
   appMessage: document.querySelector("#app-message"),
   catalogStatus: document.querySelector("#catalog-status"),
@@ -46,6 +47,7 @@ function showCatalogStatus(message, type = "info") {
 }
 
 function renderProducts() {
+  // Combina todos los criterios antes de ordenar la lista resultante.
   const term = elements.search.value.trim().toLocaleLowerCase("es");
   const category = elements.category.value;
   const availableOnly = elements.availableOnly.checked;
@@ -70,6 +72,7 @@ function renderProducts() {
 }
 
 function renderCart() {
+  // El resumen se calcula en Cart para que encabezado, líneas e importes coincidan.
   const summary = cart.getSummary();
   elements.cart.state = summary;
   elements.headerCount.textContent = String(summary.units);
@@ -94,6 +97,7 @@ function applyCartChange(operation) {
 }
 
 function populateCategories() {
+  // Las opciones proceden de las categorías reales del archivo de catálogo.
   const categories = [...new Set(catalog.map((product) => product.category))]
     .sort((left, right) => left.localeCompare(right, "es"));
 
@@ -106,6 +110,7 @@ function populateCategories() {
 }
 
 function createOrderId() {
+  // UUID cuando el navegador lo ofrece; alternativa local para navegadores antiguos.
   if (typeof crypto.randomUUID === "function") {
     return `TS-${crypto.randomUUID()}`;
   }
@@ -123,6 +128,7 @@ function appendOrderTotal(label, value) {
 }
 
 function confirmOrder() {
+  // No se vacía el carrito hasta haber validado todas las líneas y preparado el resumen.
   let summary;
   try {
     summary = cart.validateForCheckout();
@@ -165,7 +171,7 @@ async function start() {
   showCatalogStatus("Cargando el catálogo…");
   try {
     catalog = await fetchProducts();
-    cart = new Cart(catalog);
+    // Las cantidades almacenadas se recuperan solo después de disponer del catálogo vigente.
     const restored = loadCart(catalog);
     cart = new Cart(catalog, restored.lines);
     populateCategories();
@@ -194,6 +200,7 @@ async function start() {
 
 elements.filters.addEventListener("input", renderProducts);
 elements.filters.addEventListener("change", renderProducts);
+// Limpiar restablece los valores iniciales de los controles y vuelve a filtrar el catálogo original.
 elements.clearFilters.addEventListener("click", () => {
   elements.filters.reset();
   renderProducts();
@@ -216,6 +223,7 @@ elements.cart.addEventListener("cart-clear-request", () => {
   applyCartChange(() => cart.clear());
 });
 
+// El componente solicita confirmar; esta función comprueba el estado antes de mostrar el diálogo.
 elements.cart.addEventListener("checkout-request", confirmOrder);
 elements.closeOrder.addEventListener("click", () => elements.orderDialog.close());
 
